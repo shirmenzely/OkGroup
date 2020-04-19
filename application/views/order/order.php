@@ -1,13 +1,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/order.css"/>
+<script src="<?php echo base_url(); ?>asset/script/new_order.js"> </script>
 
-
+<main>
 <div id="user_not_connected">
     על מנת לבצע הזמנה עלייך להיות מחובר
     <a id="login" href="<?php echo site_url(); ?>/Login/login" > <button>התחברות/רישום
         </button></a>
 </div>
-
-
 
 <div id="orderForm">
 
@@ -36,21 +35,22 @@
 
     </section>
 
-    <section class="tab">פרטי הזמנה:
-        <p><span id="error_num_participants" class="error_message"></span>
-            כמות מוזמנים: <input onkeyup="check()" oninput="this.className = ''" name= "num_participants" id= "num_participants" type="text"></p>
+    <section class="tab">פרטי הזמנה:<br>
+    <div class="red">* שדות חובה</div>
+        <p>
+            כמות מוזמנים:  <span class="red">*</span> <span id="error_num_participants" class="error_message"></span><input onkeyup="check()" oninput="this.className = ''" name= "num_participants" id= "num_participants" type="text"></p>
         <span id="error_city"></span>
-        <p> מקום האירוע: <input onkeyup="check()" oninput="this.className = ''" name= "city" id= "city" type="text"></p>
+        <p> מקום האירוע:<span class="red">*</span> <input onkeyup="check()" oninput="this.className = ''" name= "city" id= "city" type="text"></p>
         <span id="error_order_date"></span>
-        <p> תאריך האירוע: <input onkeyup="check()" oninput="this.className = ''" placeholder="DD/MM/YYYY" name= "order_date" id= "order_date" type="text"></p>
+        <p> תאריך האירוע:<span class="red">*</span> <input onkeyup="check()" oninput="this.className = ''" placeholder="DD/MM/YYYY" name= "order_date" id= "order_date" type="text"></p>
         <span id="error_name"></span>
-        <p> שם איש קשר: <input onkeyup="check()" oninput="this.className = ''" name= "name_contect" id= "name_contect" type="text"></p>
+        <p> שם איש קשר:<span class="red">*</span> <input onkeyup="check()" oninput="this.className = ''" name= "name_contect" id= "name_contect" type="text"></p>
         <span id="error_phone"></span>
-        <p> טלפון איש קשר: <input onkeyup="check()" oninput="this.className = ''" name= "phone_contect" id= "phone_contect" type="text"></p>
+        <p> טלפון איש קשר:<span class="red">*</span> <input onkeyup="check()" oninput="this.className = ''" name= "phone_contect" id= "phone_contect" type="text"></p>
         <p> הערות: <textarea oninput="this.className = ''" name= "note" id= "note" type="text"> </textarea></p>
     </section>
 
-    <section class="tab">בחרי פרטי ספק אוכל:
+    <section class="tab">: שירותי מזון
         <input type="checkbox"name="no_food" id="no_food" onclick="readonly_food()"> לא מעוניין בספק אוכל
 
         <p>
@@ -63,7 +63,7 @@
         </p>
 
     </section>
-    <section class="tab">בחרי פרטי ספק אוכל:
+    <section class="tab"> בידור לאירוע
         <?php foreach ($supplier as $new_supplier): ?>
 
             <input type="checkbox" name="supplierarr[]" value="<?php echo $new_supplier['code_supplier'] ?>"> <?php echo $new_supplier['profession'] ?>
@@ -90,15 +90,19 @@
     </div>
     <?php echo form_close(); ?>
 </div>
-
+</main>
 
 <script>
     document.getElementById("no").style.display = "none";
     document.getElementById("nextBtn").style.display = "none";
 
-    //If the user is not connect the orger page dont apper
+    apper_only_for_connect_user();
 
-<?php if ($user != NULL) { ?>
+
+    function apper_only_for_connect_user(){
+        //If the user is not connect the orger page dont apper
+
+        <?php if ($user != NULL) { ?>
         document.getElementById("user_not_connected").style.display = "none";
         document.getElementById("orderForm").style.display = "inline-block";
 
@@ -113,8 +117,8 @@
         document.getElementById("orderForm").style.display = "none";
 
 
-<?php } ?>
-
+<?php } ?>  
+    }
 
 
 

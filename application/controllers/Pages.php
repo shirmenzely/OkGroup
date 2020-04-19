@@ -9,19 +9,16 @@ class Pages extends CI_Controller {
         $this->load->library('session');
     }
    
-        public function index() { //If the user has not logged in  
+    public function index() { 
         $data['home'] = NULL;
-        $data['title'] = 'דף הבית';    
-        $data['user'] = null;       
-        $this->load->view('templates/header', $data);
-        $this->load->view('home', $data);
-        $this->load->view('templates/footer');
-    }
-    
-        public function index_2() { //If the user has  logged in 
-        $data['home'] = NULL;
-        $data['title'] = 'דף הבית';
-        $data['user'] = $this->session->all_userdata();       
+        $data['title'] = 'דף הבית' ;
+        $sess_id = $this->session->userdata('user');
+        if(empty($sess_id)) //If the user has not logged in  
+        $data['user'] = null;
+        else
+        $data['user'] = $this->session->all_userdata();
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('home', $data);
         $this->load->view('templates/footer');

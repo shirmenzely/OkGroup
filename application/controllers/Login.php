@@ -28,7 +28,6 @@ class Login extends CI_Controller {
         );
 
         $check = $this->Login_model->auth($data);
-
         if ($check == false) {
             $data['error'] = array("message" => " שם משתמש או סיסמא לא נכונים");
             $data['title'] = 'התחברות';
@@ -37,8 +36,18 @@ class Login extends CI_Controller {
             $this->load->view('login/login', $data);
             $this->load->view('templates/footer');
         } else {
+            $data = array(
+                'user' => $this->input->post('user'),
+                'password' => $mdpass,
+                'manager'=>$check[0]['manager'],
+                'company'=>$check[0]['company']
+            );
             $this->session->set_userdata($data);
-            redirect("pages/index_2");
+            if($check[0]['manager']==1){
+                redirect("Employee_portal/view_order");
+            }
+            else
+            redirect("pages/index");
         }
     }
 
@@ -69,17 +78,14 @@ class Login extends CI_Controller {
         }
 
         if ($data['company'] == NULL) {
-            $error .= "הכנס בבקשה את שמך המלא" . "<br>";
+            $error .= "הכנס בבקשה את שם חברה " . "<br>";
         } 
-        else if (!preg_match("/^[a-zA-Z]*$/", $data['company'])) {
-            $error .= "שם לא יכול להכיל תווים שהם לא אותיות באנגלית של שמך" . "<br>";
-        }
 
 
         if ($error == '') {
             $errorDB = $this->Login_model->save($data);
             if ($errorDB != NULL) {
-                $data['error'] = array("message" => "Failed to register new user.  Error:  " . $errorDB["message"]);
+                $data['error'] = array("message" => "אימייל קיים במערכת ");
                 $data['user'] = NULL;
             } else {
                 $data['error'] = array("message" => "1");
@@ -96,7 +102,7 @@ class Login extends CI_Controller {
             'password'
         );
         $this->session->unset_userdata($data);
-        redirect("pages/index");
+        redirect("Pages/index");
     }}
 
 

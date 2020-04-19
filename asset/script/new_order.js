@@ -1,3 +1,4 @@
+
 function choose_type1() {
     document.getElementById("1").checked = true;
     nextPrev(1);

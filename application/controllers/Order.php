@@ -39,6 +39,7 @@ class Order extends CI_Controller {
             'type_dish' => $this->input->post('type_dish'),
             'email' => $_SESSION['user'],
             'status' => 'ללא הצעת מחיר',
+            'final_price' =>0,
         );
 
         $error = $this->Order_model->set_order($data);
