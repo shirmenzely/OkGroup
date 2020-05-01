@@ -1,0 +1,46 @@
+table{
+  margin-bottom: 1%;
+}
+
+#to_hide{ display:none;}
+
+
+#order {
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+    margin-right: 4%;
+
+  }
+  
+  #order td, table th{
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #order tr{background-color:#F0F0F0;}
+  
+  #order tr:hover {background-color: #E2E5E4;}
+  
+  #order th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color:#89A09D;
+    color: white;
+  }
+  #select{
+      margin-bottom: 2%;
+      text-align: center;
+  }
+
+  #but{
+      background-color: #89A09D;
+      border-radius: 3%;
+      color: white; 
+
+  }
+  #empty{
+    text-align: center;
+  }
+ 

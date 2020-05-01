@@ -1,9 +1,11 @@
 function show_status() {
     if (status == "ללא הצעת מחיר") {
-    document.getElementById("titleprice").innerHTML = "הצעת מחיר על פי המערכת";
+    document.getElementById("titleprice").innerHTML = "הצעת מחיר על פי המערכת: ";
+    document.getElementById("send").value = "שלח הצעת מחיר ללקוח";
+
     get_final_price();
 } else {
-    document.getElementById("titleprice").innerHTML = " מחיר שנשלח ללקוח";
+    document.getElementById("titleprice").innerHTML = " מחיר קודם שנשלח ללקוח: ";
     document.getElementById("final_price").value = document.getElementById("price").value;
     document.getElementById("send").value = "שלח הצעת מחיר חדשה";
 }
@@ -21,5 +23,5 @@ function get_final_price() {
     num_participants = document.getElementById("num_participants").value;
     price_for_extra_supplier = parseInt(price_for_extra_supplier);
     var final_price = price_person * num_participants + price_for_extra_supplier;
-    document.getElementById("system_price").innerHTML = final_price;
+    document.getElementById("system_price").innerHTML = final_price + ' ש"ח';
 }

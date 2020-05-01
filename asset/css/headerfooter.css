@@ -1,21 +1,41 @@
 
 *{
     box-sizing: border-box;
-    font-family: heebo;}
+    font-family: heebo;
+     direction: rtl;}
+  
 body {
   margin: 0;
-  height:800px;
+  height:150%;
   background-color: #EEF2F2;
 }
 
+footer{
+  height: 40px;
+  opacity: 0.8;
+  background-color: #333;    padding-top:1px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:5px;
+  direction: ltr;
+  color: #ddd;
+}
 
 
+#rigth-text{
+  float: right;}
+
+  #left-text{
+    float: left;
+
+  }
 .topnav {
   overflow: hidden;
-  background-color: #333;
   padding-top:1px;
    padding-left:10px;
    padding-bottom: 5px;
+   opacity: 0.8;
+   background-color: #333;
 
 
 }
@@ -42,27 +62,23 @@ body {
 }
 
 
-#logoimg{
-    width: 100px;
-    float: left;
+#left-text{
+  float: left;
 }
 
-
-footer {
-    clear: both;
-    height: 10%;
-        background-color: #333;
-
+#logoimg{
+    width: 90px;
+    float: left;
 }
 
 #showrow{
     display: block;
 }
 
-     #login ,#logout {
-        float:left;   
+#login ,#logout {
+  float:left;}
 
-    }
+    
 
 @media screen and (max-width: 950px) {
   .topnav a:not(:first-child) {display: none;}
@@ -81,6 +97,10 @@ display: block;}
 
 }
 
+.responsiveDown{
+padding: 10%;
+}
+
 @media screen and (max-width: 950px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
@@ -96,3 +116,30 @@ display: block;}
   
 }
 
+.title{
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+
+}
+
+.caption {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 300%;
+  padding-top: 2%;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px; 
+  opacity: 0.89;
+
+}

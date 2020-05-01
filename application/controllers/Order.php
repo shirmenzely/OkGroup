@@ -28,24 +28,40 @@ class Order extends CI_Controller {
 
 
     public function insert() {
-        $data = array(
-            'order_type' => $this->input->post('order_type'),
-            'num_participants' => $this->input->post('num_participants'),
-            'city' => $this->input->post('city'),
-            'order_date' => $this->input->post('order_date'),
-            'name_contect' => $this->input->post('name_contect'),
-            'phone_contect' => $this->input->post('phone_contect'),
-            'note' => $this->input->post('note'),
-            'type_dish' => $this->input->post('type_dish'),
-            'email' => $_SESSION['user'],
-            'status' => 'ללא הצעת מחיר',
-            'final_price' =>0,
-        );
+        if($this->input->post('no_food')==true){
+            $data = array(
+                'order_type' => $this->input->post('order_type'),
+                'num_participants' => $this->input->post('num_participants'),
+                'city' => $this->input->post('city'),
+                'order_date' => $this->input->post('order_date'),
+                'name_contect' => $this->input->post('name_contect'),
+                'phone_contect' => $this->input->post('phone_contect'),
+                'note' => $this->input->post('note'),
+                'type_dish' => 'ללא הסעדה',
+                'email' => $_SESSION['user'],
+                'status' => 'ללא הצעת מחיר',
+                'final_price' =>0,
+            );}
+            else{
+                $data = array(
+                    'order_type' => $this->input->post('order_type'),
+                    'num_participants' => $this->input->post('num_participants'),
+                    'city' => $this->input->post('city'),
+                    'order_date' => $this->input->post('order_date'),
+                    'name_contect' => $this->input->post('name_contect'),
+                    'phone_contect' => $this->input->post('phone_contect'),
+                    'note' => $this->input->post('note'),
+                    'type_dish' => $this->input->post('type_dish'),
+                    'email' => $_SESSION['user'],
+                    'status' => 'ללא הצעת מחיר',
+                    'final_price' =>0,
+                );
+            }
 
         $error = $this->Order_model->set_order($data);
         if ($error != NULL) {
 
-            $data['error'] = array("message" => "Failed to save order.  Error:  " . $error["message"]);
+            $data['error'] = array("message" => "ההזמנה לא נשמרה: " . $error["message"]);
         } else {
 
             $data['error'] = array("message" => "ההזמנה העוברה בהצלחה");

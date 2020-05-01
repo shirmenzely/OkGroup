@@ -1,4 +1,3 @@
-
 function choose_type1() {
     document.getElementById("1").checked = true;
     nextPrev(1);
@@ -18,19 +17,16 @@ function choose_type3() {
 function readonly_food() {
     if (document.getElementById("no_food").checked === true) {
 
-        document.getElementById("type_dish").disabled = true;
-        document.getElementById("type_dish").value = "ללא";
+        document.getElementById("type_dish_p").style.display = 'none';
         document.getElementById('type_dish').classList.remove("invalid");
-        document.getElementById('error_type_dish').innerHTML = "";
 
     }
     else {
-        document.getElementById("type_dish").disabled = false;
+        document.getElementById("type_dish_p").style.display = 'block';
         document.getElementById("type_dish").value = "בופה";
     }
 
 }
-
 
 
 var check = function () {
@@ -40,9 +36,6 @@ var check = function () {
     var order_date = document.getElementById("order_date").value;
     var name_contect = document.getElementById("name_contect").value;
     var phone_contect = document.getElementById("phone_contect").value;
-
-
-
 
     if (/^[1-9][0-9]*$/.test(num_participants) || num_participants === "") {
         document.getElementById('num_participants').classList.remove("invalid");
@@ -102,7 +95,7 @@ var check = function () {
     }
     else {
         document.getElementById('error_order_date').style.color = 'red';
-        document.getElementById('error_order_date').innerHTML = "תאריך האירוע הוא מסוג DD/MM/YYYY ומכיל מספרים בלבד  ";
+        document.getElementById('error_order_date').innerHTML = "תאריך האירוע חייב להכיל תאריך תקין מסוג DD/MM/YYYY   ";
         document.getElementById('order_date').className += " invalid";
     }
 
@@ -124,8 +117,6 @@ var check = function () {
 
 
 
-
-
 function showTab(n) {
     // This function will display the specified tab of the form...
     var x = document.getElementsByClassName("tab");
@@ -134,12 +125,17 @@ function showTab(n) {
     if (n === 0) {
         document.getElementById("nextBtn").style.display = "none";
         document.getElementById("prevBtn").style.display = "none";
+        document.getElementById("btn").style.display = "none";
+
     } else {
         document.getElementById("prevBtn").style.display = "inline";
         document.getElementById("nextBtn").style.display = "inline";
+        document.getElementById("btn").style.display = "none";
+
     }
     if (n === (x.length - 1)) {
         document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("btn").style.display = "inline";
 
     } else {
         document.getElementById("nextBtn").style.display = "inline";
@@ -153,8 +149,9 @@ function nextPrev(n) {
     // This function will figure out which tab to display
     var x = document.getElementsByClassName("tab");
     // Exit the function if any field in the current tab is invalid:
-    if (n === 1 && !validateForm())
-        return false;
+    if (n === 1 && !validateForm()){
+        alert("אנא מלא/י כראוי את כל שדות החובה");
+        return false;    }
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
