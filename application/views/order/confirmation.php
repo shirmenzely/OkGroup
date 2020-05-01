@@ -1,20 +1,30 @@
-<script src="<?php echo base_url(); ?>asset/script/new_order.js"> </script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/confirmation.css"/>
+
 <main>
-
-
+<div id="message">
 <?php
 if($user['manager']==1){?>
 שים לב ההזמנה בוצע על ידי משתמש מסוג מנהל
-<?php } ?>
+<?php } ?> </div>
 
-<?php
+<section id="tab">
 
-echo 'ההזמנה בוצעה בהצלחה! <br>
-בימים הקרובים תקבל למייל הצעת מחיר <br>
-מספר ההזמנה הוא:';
-echo  $id[0]['max(id)'];
-?>
+<h1> הזמנתך התקבלה בהצלחה !</h1>
+
+מספר ההזמנה שלך הוא: 
+<b>
+<?php echo  $id[0]['max(id)'];
+?></b>
+<br>
+אנו עובדים כעת על הצעת המחיר שלך, <br>
+ובימים הקרובים תקבל אותה למייל.<h2>
+תודה שבחרת          <img id="firstimg" src="<?php echo base_url(); ?>asset/img/ok.png" >    ניפגש בקרוב ! 
+
+</h2>
+
+</section>
+
+
      
 </main>   
-     
      

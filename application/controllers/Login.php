@@ -11,6 +11,7 @@ class Login extends CI_Controller {
     }
         public function login() {
         $data['title'] = ' התחברות לאתר ';
+        $data['title2']='רישום לאתר';
         $data['user'] = NULL;
         $this->load->view('templates/header', $data);
         $this->load->view('login/login', $data);
@@ -29,8 +30,8 @@ class Login extends CI_Controller {
 
         $check = $this->Login_model->auth($data);
         if ($check == false) {
-            $data['error'] = array("message" => " שם משתמש או סיסמא לא נכונים");
-            $data['title'] = 'התחברות';
+            $data['error'] = array("message" => " שם משתמש או סיסמא אינם נכונים");
+            $data['title'] = ' התחברות לאתר';
             $data['user'] = NULL;
             $this->load->view('templates/header', $data);
             $this->load->view('login/login', $data);
@@ -51,13 +52,7 @@ class Login extends CI_Controller {
         }
     }
 
-    public function register() {
-        $data['title'] = 'הרשמה';
-        $data['user'] = NULL;
-        $this->load->view('templates/header', $data);
-        $this->load->view('login/register', $data);
-        $this->load->view('templates/footer');
-    }
+
 
     public function save() {
         $data = array(
@@ -85,7 +80,7 @@ class Login extends CI_Controller {
         if ($error == '') {
             $errorDB = $this->Login_model->save($data);
             if ($errorDB != NULL) {
-                $data['error'] = array("message" => "אימייל קיים במערכת ");
+                $data['error'] = array("message" => "הרישום למערכת לא הצליח! אימייל קיים במערכת");
                 $data['user'] = NULL;
             } else {
                 $data['error'] = array("message" => "1");
