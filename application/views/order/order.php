@@ -1,4 +1,4 @@
-<script src="<?php echo base_url(); ?>asset/script/new_order.js"> </script>
+<script src="<?php echo base_url(); ?>asset/js/new_order.js"> </script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/order.css"/>
 
 
@@ -47,13 +47,13 @@
             כמות מוזמנים:  <span class="red">* </span> <span id="error_num_participants" class="error_message" >  </span>
             <input onkeyup="check()" oninput="this.className = ''" name= "num_participants" id= "num_participants" placeholder="300" type="text"></p>
         
-        <p> מקום האירוע: <span class="red">* </span><span id="error_city"></span> <input onkeyup="check()"placeholder="הרצליה" oninput="this.className = ''" name= "city" id= "city" type="text"></p>
+        <p>   מקום האירוע (עיר): <span class="red">* </span><span id="error_city"></span> <input onkeyup="check()"placeholder="הרצליה" oninput="this.className = ''" name= "city" id= "city" type="text"></p>
         <p> תאריך האירוע: <span class="red">* </span> <span id="error_order_date"></span><input onkeyup="check()" oninput="this.className = ''" placeholder="DD/MM/YYYY" name= "order_date" id= "order_date" type="text"></p>
         
         <p> שם איש קשר: <span class="red">* </span><span id="error_name"></span> <input onkeyup="check()" placeholder="ישראל ישראלי" oninput="this.className = ''" name= "name_contect" id= "name_contect" type="text"></p>
         
         <p> טלפון איש קשר: <span class="red">* </span><span id="error_phone"></span> <input onkeyup="check()" placeholder="0543876108" oninput="this.className = ''" name= "phone_contect" id= "phone_contect" type="text"></p>
-        <p> הערות:<br> <textarea cols="100%" rows="5" oninput="this.className = ''" name= "note" id= "note" type="text"> </textarea></p>
+        <p> הערות:<br> <textarea cols="100%" rows="5" oninput="this.className = ''" name= "note" id= "note" type="text" maxlength=250> </textarea></p>
     </section>
 
     <section class="tab">
@@ -83,13 +83,11 @@
     </section>
 
 
-    <div style="overflow:auto;">
-        <div>
+    <div id="divbutton"style="overflow:auto;">
         <input type="submit" value="שלח" class="btn" id="btn" name="submit">
 
             <button type="button" id="nextBtn" onclick="nextPrev(1)">הבא</button>
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">הקודם</button>  
-        </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:1%; ;">

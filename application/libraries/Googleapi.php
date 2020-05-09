@@ -66,6 +66,7 @@ class Googleapi
         }
     }
 
+    //return the specific client to controler that help us to know where to update
     public function client()
     {
         return $this->client;

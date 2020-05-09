@@ -13,7 +13,9 @@
     position: relative;
 }
 
-
+.red{
+    color:red;
+}
 
 .container {
     padding-left: 3%;
@@ -163,4 +165,6 @@ input[type=submit]:hover , input[type=button]:hover {
     }
 }
 
-
+#error{
+    text-align: center;
+}

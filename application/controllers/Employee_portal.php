@@ -13,9 +13,71 @@ class Employee_portal extends CI_Controller
         $this->load->library('email');
         $this->load->library('encrypt');
         $this->load->library('googleapi');
-
         $this->calendarapi = new Google_Service_Calendar($this->googleapi->client());//create  api google calender object 
     }
+
+    public function portal()
+    {
+        $sess_id = $this->session->userdata('user');
+        if (empty($sess_id)||$_SESSION['manager']!=1) {
+            redirect("Pages/index");
+        } else {
+            $data['user'] = $this->session->all_userdata();
+        }
+
+        $data['user'] = $this->session->all_userdata();
+        $data['title'] = "פורטל עובדים";
+        $this->load->view('templates/header', $data);
+        $this->load->view('employee_portal/portal', $data);
+        $this->load->view('templates/footer');
+   
+    }
+
+    public function getCalendar()
+    {
+        $sess_id = $this->session->userdata('user');
+        if (empty($sess_id)||$_SESSION['manager']!=1) {
+            redirect("Pages/index");
+        } else {
+            $data['user'] = $this->session->all_userdata();
+        }
+
+        $data['user'] = $this->session->all_userdata();
+        $data['title'] = "יומן אירועים";
+        $this->load->view('templates/header', $data);
+        $this->load->view('employee_portal/event_calendar', $data);
+        $this->load->view('templates/footer');
+   
+    }
+
+    public function view_order()
+    { // View pending orders
+        $data['order'] = NULL;
+        $data['order'] = $this->Employee_portal_model->get_pending_orders_by_status();
+        $data['title'] = 'ניהול הצעת מחיר';
+        $sess_id = $this->session->userdata('user');
+        if (empty($sess_id)||$_SESSION['manager']!=1) {
+            redirect("Pages/index");
+        } else {
+            $data['user'] = $this->session->all_userdata();
+        }        $this->load->view('templates/header', $data);
+        $this->load->view('employee_portal/pending_order', $data);
+        $this->load->view('templates/footer');
+    }
+
+
+    public function change_status()
+    {
+        $order_id = $this->input->post('order_id');
+        if($this->input->post('status_order')=="מאושר"
+         && $this->Employee_portal_model->update_status($order_id)){ // if the status is "מאושר" add event to calendar
+            $this->add_event_to_calendar($order_id);
+            $this->session->set_flashdata('message2', 'האירוע התווסף ללוח האירועים של החברה');
+
+        }
+        $this->extra_details_after_change($order_id);
+    }
+
     public function add_event_to_calendar($order_id) // api google calender
     {
         $details=$this->Employee_portal_model->get_details_order($order_id);
@@ -48,32 +110,13 @@ class Employee_portal extends CI_Controller
               ),
         ));
       //  $data['htmlLink'] = $event->htmlLink;
+      
 
         $calendarId = 'okgroup2020@gmail.com';
-        $event = $this->calendarapi->events->insert($calendarId, $event);
-    }
 
-    public function getCalendar()
-    {
-        $data['user'] = $this->session->all_userdata();
-        $data['title'] = "לוח אירועים";
+    $event = $this->calendarapi->events->insert($calendarId, $event);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('employee_portal/event_calendar', $data);
-        $this->load->view('templates/footer');
-   
-    }
-
-    public function view_order()
-    { // View pending orders
-        $data['order'] = NULL;
-        $data['order'] = $this->Employee_portal_model->get_pending_orders_by_status();
-        $data['title'] = 'ניהול הצעת מחיר';
-        $data['user'] = $this->session->all_userdata();
-        $this->load->view('templates/header', $data);
-        $this->load->view('employee_portal/pending_order', $data);
-        $this->load->view('templates/footer');
-    }
+}
 
 
     public function extra_details()
@@ -86,21 +129,15 @@ class Employee_portal extends CI_Controller
         $data['supplier'] = $this->Employee_portal_model->get_supplier_in_order($this->input->post('id'));
         $data['title'] = 'פרטי הזמנה ';
         $data['title2'] = 'תוספות לאירוע ';
-        $data['user'] = $this->session->all_userdata();
-        $this->load->view('templates/header', $data);
+        $sess_id = $this->session->userdata('user');
+        if (empty($sess_id)||$_SESSION['manager']!=1) {
+            redirect("Pages/index");
+        } else {
+            $data['user'] = $this->session->all_userdata();
+        }        $this->load->view('templates/header', $data);
         $this->load->view('employee_portal/extra_details', $data);
         $this->load->view('templates/footer');
     }
-    public function change_status()
-    {
-        $order_id = $this->input->post('order_id');
-        $this->Employee_portal_model->update_status($order_id);
-        if($this->input->post('status_order')=="מאושר"){ // if the status is "מאושר" add event to calendar
-            $this->add_event_to_calendar($order_id);
-        }
-        $this->extra_details_after_change($order_id);
-    }
-
     public function extra_details_after_change($order_id)
     {
         $data['order'] = NULL;

@@ -1,0 +1,35 @@
+main{
+    text-align: center;
+}
+
+
+#name{
+    color: blue;
+    font-weight: bolder;
+}
+
+.button{
+    background-color:#89A09D;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    padding:  10px;
+    display: inline-block;
+    width: 150px;
+    word-wrap: break-word;
+    margin: 15px;
+}
+
+.button:hover{
+    opacity: 0.8;
+}
+
+.tab{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 10%;
+    background-color: #ffffff;
+    width: 80%;
+    padding: 2%;
+    border-radius: 20px;
+}

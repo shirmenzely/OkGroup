@@ -9,7 +9,7 @@
    
    
    
-   <p id="error"><?php
+   <p id="error"  class="red"><?php
         if (isset($error)) {
             echo $error['message'];
         }
@@ -39,19 +39,19 @@
         <section class="modal-content animate" >
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-                <h2><?php echo $title2; ?></h2>
+                <h2>רישום לאתר</h2>
             </div>
 
 
             <div class="container">
-            <p id="error_reg"></p>
+            <p id="error_reg" class="red"></p>
                 <?php echo form_open('Login/save'); ?>
                     <label >אימייל</label>  
                     <input  type="email" id="cemail" name="user" placeholder="israel@gmail.com" required>
                     <label >סיסמה </label>
                     <input  type="password" id="cpass" name="password" placeholder="205678926">
                     <label >שם חברה</label>
-                    <input  type="text" id="cname" name="company" placeholder="ישראל ישראל" required>
+                    <input  type="text" id="cname" name="company" placeholder="O.K Group" required>
                   
                     <input id="regbutton" type="button" value="הירשם" class="btn" name="submit">
                 <?php echo form_close(); ?>   

@@ -1,6 +1,6 @@
 <!--link to css and js file-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/extra_details.css" />
-<script src="<?php echo base_url(); ?>asset/script/employee_portal.js"> </script>
+<script src="<?php echo base_url(); ?>asset/js/employee_portal.js"> </script>
 
 
 <main>
@@ -18,6 +18,22 @@
   </p>
   ";
         }
+
+        if ($this->session->flashdata("message2")) {
+            echo "
+  <p>
+   <b> " . $this->session->flashdata("message2") . " </b>
+  </p>
+  ";
+        }
+
+        if($order[0]['change_details']!=null){
+            echo 'לקוח ביקש לעדכן פרטים בהזמנה: <br>';
+            echo $order[0]['change_details'];
+
+        }
+
+
         $price_for_extra_supplier = 0; //A variable that will save the amount to pay for extra supplier
         ?></div>
 

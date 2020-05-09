@@ -41,6 +41,8 @@ class Order extends CI_Controller {
                 'email' => $_SESSION['user'],
                 'status' => 'ללא הצעת מחיר',
                 'final_price' =>0,
+                'change_details'=>null,
+                
             );}
             else{
                 $data = array(
@@ -70,6 +72,7 @@ class Order extends CI_Controller {
     }
 
     public function confirm_page() {
+
         $data['id'] = $this->Order_model->last_order();
         $data['title'] = ' אישור הזמנה';
         $data['user'] = $this->session->all_userdata();

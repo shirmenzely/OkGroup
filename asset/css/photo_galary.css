@@ -31,7 +31,7 @@ h2{
 
 
 
-#row{
+.row{
     background-color: #C2C2C2;
     margin-right: 10%;
     width: 80%;
@@ -48,7 +48,7 @@ h2{
 }
 
 
-#row > .flexdiv {
+.row > div {
     width:320px;
     margin: 10px;
 }
@@ -72,20 +72,5 @@ img:hover {
 .gallaryPic:hover{
 opacity: 0.2;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

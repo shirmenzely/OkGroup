@@ -1,0 +1,62 @@
+table{
+overflow: scroll;
+width: 70%;
+height: 100px;
+}
+
+
+.tab{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 10%;
+    background-color: #ffffff;
+    width: 80%;
+    padding: 2%;
+    border-radius: 20px;
+    text-align: center;
+word-wrap: break-word;
+}
+
+#details label{
+    border-bottom: solid gray;
+    width: 18%;
+}
+
+.date{
+    color: green;
+}
+
+#comingorders{
+overflow: auto;
+height: 400px;
+padding: 3px;
+
+}
+
+#comingorder{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right:25% ;
+    background-color: #a7a3a3;
+    width: 50%;
+    border-radius: 20px;
+    padding: 5px;
+}
+#prevorders{
+    overflow: auto;
+    text-align: center;
+}
+table{
+    margin-right: 5%;
+    width: 90%;
+    border: solid gray;
+    border-collapse: collapse;
+
+}
+table, td, th {  
+    border: 1px solid #ddd;
+  }
+
+  th, td {
+    padding: 15px;
+  }

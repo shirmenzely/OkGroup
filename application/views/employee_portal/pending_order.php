@@ -4,20 +4,17 @@
 <section class="title caption" style="background-image: url('<?php echo base_url(); ?>asset/img/bid_title.jpg')">
 <span class="border"><?php echo $title; ?></span><br>
  </section>
-<h3 style=" text-align: center;"> 
-    <?php  echo $user['company'] ?>  פעילות מהנה במערכת המידע של 
-<img width="50px"  src="<?php echo base_url(); ?>asset/img/ok.png" > 
-</h3>
+
 
 <section id="select">
 <?php echo form_open('Employee_portal/view_order') ?>
  <lable> בחר סטטוס הזמנה: </lable>  
 <select name="status">
-<option label=" כל ההזמנות" value = "כל ההזמנות" >כל ההזמנות</option>
+<option label="כל ההזמנות" value = "כל ההזמנות" >כל ההזמנות</option>
 <option label="ללא הצעת מחיר" value = "ללא הצעת מחיר">ללא הצעת מחיר</option>
 <option label="נשלחה הצעת מחיר" value = "נשלחה הצעת מחיר">נשלחה הצעת מחיר</option>
+<option label="ממתין להצעת מחיר חדשה" value = "ממתין להצעת מחיר חדשה ">ממתין להצעת מחיר חדשה</option>
 <option label="מאושר" value = "מאושר ">מאושר</option>
-<option label="מבוטל" value = "מבוטל">מבוטל</option>
 </select>
 <input id="but" name="submit" type="submit" value="הצג"> 
 

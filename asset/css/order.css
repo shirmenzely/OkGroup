@@ -33,12 +33,16 @@ button, .btn{
     background-color: #4CAF50;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 17px;
+    padding: 10px ;
     cursor: pointer;
     border-radius: 20px;
-    margin-right: 37%;
-    width: 100px;
+    width: 15%;
+}
+
+#divbutton{
+    display: inline-block;
+    width: 100%;
+    margin-right: 33%;
     margin-bottom: 2px;
 }
 
@@ -141,3 +145,9 @@ margin-right: 7%;
 textarea{
     width: 100%;
 }
+
+input:focus {
+    background-color: lightblue;
+  }
+
+

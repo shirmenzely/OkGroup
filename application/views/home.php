@@ -1,6 +1,6 @@
  
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/home.css"/>
-
+<main>
     <button onclick="topFunction()" id="myBtn" title="Go to top">לראש העמוד</button>
 
 
@@ -50,6 +50,8 @@
             <img class="pic" src="<?php echo base_url(); ?>asset/img/work1.png" >
         </section>
     </section>
+
+
     
     <section class="bg-image img3 flex">
         <div class="left ">
@@ -117,26 +119,7 @@
 
 
     </section>
-
-    <section class="bg-image img4 flex-center">
-
-        <div class="center">
-            <img  style="width:60px" src="<?php echo base_url(); ?>asset/img/location.png" >
-            <p>המיסב 5 , יבנה</p>
-        </div>
-
-        <div class="center">
-            <img  style="width:60px" src="<?php echo base_url(); ?>asset/img/phone.png" >
-            <p> 054-5691296 </p>
-        </div>
-
-        <div class="center">
-            <img  style="width:60px" src="<?php echo base_url(); ?>asset/img/mail.png" >
-            <p> haim.okinc@gmail.com
-            </p>
-        </div>
-    </section>
-
+    
     <section class="bg-image img5 flex">
         <div class="right responsiveDown">
             <h1>תמונות שוות אלפי מילים</h1>
@@ -163,19 +146,38 @@
        
     </section>
 
-    <footer>
-<section id="left-text">
-Copyright 2020 NSR - All Rights Reserved © 
+    <section class="bg-image img4 flex-center">
 
+        <div class="center">
+            <img  style="width:60px" src="<?php echo base_url(); ?>asset/img/location.png" >
+            <p>המיסב 5 , יבנה</p>
+        </div>
+
+        <div class="center">
+            <img  style="width:60px" src="<?php echo base_url(); ?>asset/img/phone.png" >
+            <p> 054-5691296 </p>
+        </div>
+
+        <div class="center">
+            <img  style="width:60px" src="<?php echo base_url(); ?>asset/img/mail.png" >
+            <p> <a  id="mail" href="mailto:haim.okinc@gmail.com "> haim.okinc@gmail.com </a><br>       
+
+            </p>
+        </div>
+    </section>
+
+
+ <footer>
+<section id="left-text">
+ Copyright 2020 O.K. Group  - All Rights Reserved © 
 </section>
 
 <section id="rigth-text">
-<i class="fa fa-fw fa-facebook"></i>
-<i class="fa fa-fw fa-google"></i>
-<i class="fa fa-fw fa-youtube"></i>
-<i class="fa fa-fw fa-instagram"></i>
+<a href="https://www.facebook.com/OK-Group-%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%99%D7%A2%D7%95%D7%A5-%D7%90%D7%A8%D7%92%D7%95%D7%A0%D7%99-%D7%90%D7%99%D7%9E%D7%95%D7%9F-%D7%90%D7%99%D7%A9%D7%99-%D7%94%D7%A4%D7%A7%D7%95%D7%AA-766458900397853/"><i style="margin:5px;font-size:17px;color:white"class="fa fa-fw fa-facebook"></i></a>
+<a href="https://www.dibiz.com/haim-okinc"><i style="margin:5px;font-size:17px;color:white"class="fa fa-address-card-o"></i></a>
+<a href="https://www.linkedin.com/in/haim-biton-b2091846/"><i style="margin:5px;font-size:17px;color:white" class="fa fa-fw fa-linkedin"></i></a>
 </section>
-
+</main>
 
 </footer>
 

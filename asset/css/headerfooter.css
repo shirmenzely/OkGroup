@@ -29,15 +29,13 @@ footer{
     float: left;
 
   }
-.topnav {
+.topnav  {
   overflow: hidden;
   padding-top:1px;
-   padding-left:10px;
-   padding-bottom: 5px;
-   opacity: 0.8;
-   background-color: #333;
-
-
+  padding-left:10px;
+  padding-bottom: 5px;
+  opacity: 0.8;
+  background-color: #333;
 }
 
 .topnav a {
@@ -48,7 +46,9 @@ footer{
   padding: 1px 14px 0px 16px;
   text-decoration: none;
   font-size: 18px;
-
+}
+.topnav .icon {
+  display: none;
 }
 
 .topnav a:hover {
@@ -56,10 +56,6 @@ footer{
   color: black;
 }
 
-
-.topnav .icon {
-  display: none;
-}
 
 
 #left-text{
@@ -89,6 +85,10 @@ display: block;}
     float: right;
     display: block;
   }
+
+  #iconav{
+    display: none;
+  }
   
        #login ,#logout {
         float: right; 
@@ -113,7 +113,8 @@ padding: 10%;
     display: block;
     text-align: right;
   }
-  
+
+   
 }
 
 .title{

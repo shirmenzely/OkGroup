@@ -10,9 +10,13 @@ class Employee_portal_model extends CI_Model {
         $status=$this->input->post('status_order');
         if($this->db->query("UPDATE orders SET status='" . $status . "'   where id='" . $order_id . "'")){
             $this->session->set_flashdata('message', 'סטטוס עודכן');
+            return true;
         }
-        else
-        $this->session->set_flashdata('message', 'סטטוס לא עודכן');
+        else{
+            $this->session->set_flashdata('message', ' משהו השתבש! סטטוס לא עודכן');
+            return false;
+
+        }
     }
 
     public function get_pending_orders_by_status() { //Retrieving all orders 
@@ -23,7 +27,7 @@ class Employee_portal_model extends CI_Model {
             on
             (user.user= orders.email)
      
-             where STR_TO_DATE(orders.order_date, '%d/%m/%Y') > CURRENT_DATE()
+             where STR_TO_DATE(orders.order_date, '%d/%m/%Y') >= CURRENT_DATE()
              order by(STR_TO_DATE(orders.order_date, '%d/%m/%Y'))");
 
         }
@@ -31,9 +35,8 @@ class Employee_portal_model extends CI_Model {
         else if($this->input->post('status')=="כל ההזמנות"){
                 $query = $this->db->query("SELECT * FROM user inner join orders 
                 on
-                (user.user= orders.email)
-         
-                 where STR_TO_DATE(orders.order_date, '%d/%m/%Y') > CURRENT_DATE()
+                (user.user= orders.email)       
+                 where STR_TO_DATE(orders.order_date, '%d/%m/%Y') >= CURRENT_DATE()
                  order by(STR_TO_DATE(orders.order_date, '%d/%m/%Y'))");
         }
         else{
@@ -42,14 +45,11 @@ class Employee_portal_model extends CI_Model {
             on
             (user.user= orders.email)
      
-             where STR_TO_DATE(orders.order_date, '%d/%m/%Y') > CURRENT_DATE()
+             where STR_TO_DATE(orders.order_date, '%d/%m/%Y') >= CURRENT_DATE()
              AND
              orders.status='" . $status . "'
              order by(STR_TO_DATE(orders.order_date, '%d/%m/%Y'))");
         }
-
-
-
         if ($query) {
             return $query->result_array();
         }
@@ -130,7 +130,7 @@ class Employee_portal_model extends CI_Model {
     }
 
     public function set_status_and_price($order_id,$final_price) { 
-        $query = $this->db->query("UPDATE orders SET final_price='" . $final_price . "', status='נשלחה הצעת מחיר'   where id='" . $order_id . "'");
+        $query = $this->db->query("UPDATE orders SET final_price='" . $final_price . "', status='נשלחה הצעת מחיר' , change_details= null  where id='" . $order_id . "'");
 
 
     }
