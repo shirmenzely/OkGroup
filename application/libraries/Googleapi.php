@@ -23,7 +23,7 @@ class Googleapi
         require_once dirname(__FILE__) . '/google-api/vendor/autoload.php';
         $this->client = new Google_Client();
         $this->client->setApplicationName('Google Calendar API PHP Quickstart');
-        $this->client->setScopes('https://www.googleapis.com/auth/calendar'); //Permissions to google calendar
+        $this->client->setScopes('https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/gmail.send	'); //Permissions to google calendar
         $this->client->setAuthConfig('credentials.json');
         $this->client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
@@ -65,10 +65,12 @@ class Googleapi
             file_put_contents($tokenPath, json_encode($this->client->getAccessToken()));
         }
     }
-
-    //return the specific client to controler that help us to know where to update
+    
+        //return the specific client to controler that help us to know where to update
     public function client()
     {
         return $this->client;
     }
+
+
 }

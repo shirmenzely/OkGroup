@@ -22,9 +22,10 @@ class Chatbot_model extends CI_Model {
     public function update_city($order_id,$changeString) {
         $city=$this->input->post('city');
         if($this->db->query("UPDATE orders SET city='" . $city . "' 
-           , status = 'ממתין להצעת מחיר חדשה'
-        , change_details='". $changeString  ."'
-          where id='" . $order_id . "'")){
+         , change_details= '" . $changeString . "' 
+         , status = 'ממתין להצעת מחיר חדשה'
+        
+          where id ='" . $order_id . "'")){
             $this->session->set_flashdata('message', 'סטטוס עודכן');
         }
         else

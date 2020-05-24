@@ -41,7 +41,8 @@ class Login extends CI_Controller {
                 'user' => $this->input->post('user'),
                 'password' => $mdpass,
                 'manager'=>$check[0]['manager'],
-                'company'=>$check[0]['company']
+                'company'=>$check[0]['company'],
+                'manager_name'=>$check[0]['manager_name']
             );
             $this->session->set_userdata($data);
             if($check[0]['manager']==1){
@@ -68,12 +69,13 @@ class Login extends CI_Controller {
             $error .= "פורמט מייל לא תקין" . "<br>";
         }
 
-        if ($data['password'] == NULL) {
+
+        if ($this->input->post('password') == NULL||$this->input->post('password')=="") {
             $error .= "הכנס בבקשה סיסמה" . "<br>";
         }
 
-        if ($data['company'] == NULL) {
-            $error .= "הכנס בבקשה את שם חברה " . "<br>";
+        if ($data['company'] == NULL||$data['company'] == "") {
+            $error .= "הכנס בבקשה את שם החברה " . "<br>";
         } 
 
 

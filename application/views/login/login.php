@@ -49,8 +49,8 @@
                     <label >אימייל</label>  
                     <input  type="email" id="cemail" name="user" placeholder="israel@gmail.com" required>
                     <label >סיסמה </label>
-                    <input  type="password" id="cpass" name="password" placeholder="205678926">
-                    <label >שם חברה</label>
+                    <input  type="password" id="cpass" name="password" placeholder="205678926" required>
+                                       <label >שם חברה</label>
                     <input  type="text" id="cname" name="company" placeholder="O.K Group" required>
                   
                     <input id="regbutton" type="button" value="הירשם" class="btn" name="submit">
@@ -61,8 +61,9 @@
 </main>
 
 <script>
-    $(".btn").click(function () {
 
+
+    $(".btn").click(function () {
         var cemail = $("#cemail").val();
         var cpass = $("#cpass").val();
         var company = $("#cname").val();
@@ -83,7 +84,6 @@
                 }
             }
         });
-
     });
 
 

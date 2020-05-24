@@ -26,7 +26,7 @@ class Profile extends CI_Controller {
         $data['supplier'] = $this->Profile_model->supplier_in_order();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('Profile/profile', $data);
+        $this->load->view('profile/profile', $data);
         $this->load->view('templates/footer');
     }
 

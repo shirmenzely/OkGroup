@@ -27,7 +27,24 @@ function readonly_food() {
     }
 
 }
+function checkDate(){
+    //seperate the year,month and day for the first date
+    var order_date = document.getElementById("order_date").value;
+    var strmth1 = order_date.substring(3, 5);
+    var strday1 = order_date.substring(0, 2);
+    parseInt(strmth1);
+    parseInt(strday1);
 
+
+    if(strmth1==02 &&strday1>28 )
+    return false;
+    if((strmth1==04||strmth1==06||strmth1==11||strmth1==09) && strday1>30 )
+    return false;
+
+    return true;
+
+
+}
 
 var check = function () {
     console.log('check')
@@ -75,6 +92,7 @@ var check = function () {
     var strday1 = order_date.substring(0, 2);
     var user_date = new Date(stryear1, strmth1 - 2, strday1);
 
+
     if (/^(0[1-9]|[12][0-9]|3[01])[- /](0[1-9]|1[012])[- /](19|20)\d\d$/.test(order_date) || order_date === "")
     {
         if (user_date >= now || order_date === "")
@@ -93,9 +111,22 @@ var check = function () {
 
 
     }
-    else {
+    else{
         document.getElementById('error_order_date').style.color = 'red';
         document.getElementById('error_order_date').innerHTML = "תאריך האירוע חייב להכיל תאריך תקין מסוג DD/MM/YYYY   ";
+        document.getElementById('order_date').className += " invalid";
+    }
+
+
+    if (checkDate()|| order_date === "")
+    {
+        document.getElementById('order_date').classList.remove("invalid");
+        document.getElementById('error_order_date').innerHTML = "";
+
+    }
+    else {
+        document.getElementById('error_order_date').style.color = 'red';
+        document.getElementById('error_order_date').innerHTML = "תאריך לא קיים";
         document.getElementById('order_date').className += " invalid";
     }
 

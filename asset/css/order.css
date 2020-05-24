@@ -56,8 +56,6 @@ button, .btn{
 #login_btn:hover{
     opacity: 0.8;
     border-radius: 10%;
-
-
 }
 
 #user_not_connected{
@@ -118,30 +116,30 @@ border-radius: 20px;
 .tab {
     display: none;
     padding: 5%;
-    min-width: 300px;
 }
 .flex-box{
 display: flex;
-justify-content: center;
+flex-direction: row;
 justify-content: center;
 align-items: center;
-
+width: 100%;
 }
 
 .flex-box > a{
 text-align: center;
-line-height: 75px;
 text-decoration: none;
-margin-right: 7%;
+margin: 6%;
+}
+
+@media screen and (max-width: 900px) {
+    .flex-box{
+        flex-direction: column;
+   
+        }
 
 }
 
-@media screen and (max-width: 300px) {
-.flex-box > a{
 
-        margin-right: 10px;
-
-}}
 textarea{
     width: 100%;
 }

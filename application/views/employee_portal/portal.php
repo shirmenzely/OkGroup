@@ -6,7 +6,7 @@
  </section>
  <section class="tab">
 <h3 style=" text-align: center;"> 
-   ברוכ/ה הבא/ה! <span id="name"> <?php  echo $user['company'] ?>  </span> 
+   ברוכ/ה הבא/ה! <span id="name"> <?php  echo $user['manager_name'] ?>  </span> 
    המשך פעילות מהנה במערכת של
 <img width="50px"  src="<?php echo base_url(); ?>asset/img/ok.png" > 
 </h3>

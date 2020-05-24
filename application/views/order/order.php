@@ -26,7 +26,7 @@
     <?php echo form_open('Order/insert'); ?>
 
     <!-- One "tab" for each step in the form: -->
-    <section class="tab flex-box">
+    <section class="tab ">
         <h3> בחר את סוג השירות אותו תרצה להזמין </h3>
         <br>
         <p>  <fieldset id="no" oninput="this.className = ''">
@@ -34,9 +34,11 @@
             <input type="radio" name="order_type" class="order_type" id="2" value="כנס " /> <br />
             <input type="radio" name="order_type" class="order_type" id="3" value="אירוע חברה"/><br />
         </fieldset>
-       <a href="#"> <img src="<?php echo base_url(); ?>asset/img/lecture.png" height="150" size="170" onclick="choose_type1()" name="lecture"> </a>
+        <div class="flex-box" >
+       <a  href="#"> <img src="<?php echo base_url(); ?>asset/img/lecture.png" height="150" size="170" onclick="choose_type1()" name="lecture"> </a>
        <a href="#"><img src="<?php echo base_url(); ?>asset/img/conference.png" height="150" size="170" onclick="choose_type2()" name="lecture"> </a>
        <a href="#"><img src="<?php echo base_url(); ?>asset/img/event.png" height="150" size="170" onclick="choose_type3()" name="lecture"> </a>
+    </div>
     </section>
 
     <section class="tab">

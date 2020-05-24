@@ -8,15 +8,30 @@ class Employee_portal_model extends CI_Model {
 
     public function update_status( $order_id) {
         $status=$this->input->post('status_order');
-        if($this->db->query("UPDATE orders SET status='" . $status . "'   where id='" . $order_id . "'")){
-            $this->session->set_flashdata('message', 'סטטוס עודכן');
-            return true;
-        }
-        else{
-            $this->session->set_flashdata('message', ' משהו השתבש! סטטוס לא עודכן');
-            return false;
+        if($status="נשלחה הצעת מחיר"){
+            if($this->db->query("UPDATE orders SET status='" . $status . "' , change_details=null  where id='" . $order_id . "'")){
+                $this->session->set_flashdata('message', 'סטטוס עודכן');
+                return true;
+            }
+            else{
+                $this->session->set_flashdata('message', ' משהו השתבש! סטטוס לא עודכן');
+                return false;
+    
+            }
+
+        }else{
+            if($this->db->query("UPDATE orders SET status='" . $status . "'   where id='" . $order_id . "'")){
+                $this->session->set_flashdata('message', 'סטטוס עודכן');
+                return true;
+            }
+            else{
+                $this->session->set_flashdata('message', ' משהו השתבש! סטטוס לא עודכן');
+                return false;
+    
+            }
 
         }
+     
     }
 
     public function get_pending_orders_by_status() { //Retrieving all orders 
