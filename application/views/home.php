@@ -2,7 +2,7 @@
  <main>
      <button onclick="topFunction()" id="myBtn" title="Go to top">לראש העמוד</button>
 
-     <section class="bgimg-1 flex-center">
+     <section class="bgimg-1 flex-center" style="background-image:url('<?php echo base_url(); ?>asset/img/bh1.jpg')">
          <img id="firstimg" src="<?php echo base_url(); ?>asset/img/ok1.png">
      </section>
 
@@ -14,7 +14,7 @@
 
              הינה חברה המאגדת תחת קורת גג אחת את כל נותני השרות הדרושים למנהלים ומקבלי החלטות.
              חברתנו פעילה במגוון תחומי פעילות, אותם מובילים אנשי מקצוע, יועצים ומנהלים מומחים בתחומי הניהול הייעוץ, הובלת שינויים, בימוי והפקת אירועים וכנסים ענקיים.
-             הידע המקצועי והניסיון הרב בעבודה בתחומי חינוך חברה וקהילה כמוכן המומחיות בהובלת שינויים ארגוניים חברתיים מאפשרים לנו להפוך את ארגונך מטוב למצוין.
+             הידע המקצועי והניסיון הרב בעבודה בתחומי חינוך חברה וקהילה, והמומחיות בהובלת שינויים ארגוניים חברתיים מאפשרים לנו להפוך את ארגונך מטוב למצוין.
              חברתנו מובילה חדשנות ומתחייבת תמיד בשרות מקצוענות אמינות נאמנות ללא פשרות תוך שמירה על משמעות ערכית וצניעות צרו עימנו קשר ונגיע ללא התחייבות לפגישת הכרות.
          </p>
 
@@ -27,7 +27,7 @@
          </p>
 
      </section>
-     <div class="bgimg-2">
+     <div class="bgimg-2" style="background-image:url('<?php echo base_url(); ?>asset/img/bh2.jpg')">
          <div class="caption">
              <span class="border"> מנכ"ל החברה
 
@@ -79,7 +79,7 @@
          </div>
      </div>
 
-     <div class="bgimg-3">
+     <div class="bgimg-3" style="background-image:url('<?php echo base_url(); ?>asset/img/bh3.jpg')">
          <div class="caption">
              <span class="border">תמונות שוות אלפי מילים </span>
          </div>
@@ -95,7 +95,7 @@
      </div>
 
 
-     <div class="bgimg-4">
+     <div class="bgimg-4" style="background-image:url('<?php echo base_url(); ?>asset/img/bh4.jpg')">
          <div class="caption">
              <span class="border">צור קשר</span>
          </div>

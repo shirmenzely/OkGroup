@@ -68,7 +68,7 @@ class Chatbot extends CI_Controller
                 $changeString.=" מספר משתתפים עודכן
                 (
     מספר קודם -
-    ". $details[0]['num_participants'] .")  ";
+    ". $details[0]['num_participants'] .") <br> ";
                   
                 $this->Chatbot_model->update_num_participants($orderid,$changeString);
             }
@@ -77,7 +77,7 @@ class Chatbot extends CI_Controller
                 $changeString.=" מיקום אירוע עודכן
                 (
     מיקום קודם -
-    ". $details[0]['city'] .") "; 
+    ". $details[0]['city'] .")  <br> "; 
                $this->Chatbot_model->update_city($orderid,$changeString);
             }
     
@@ -85,7 +85,7 @@ class Chatbot extends CI_Controller
                 $changeString.=" סוג הגשה עודכן
                 (
     סוג קודם -
-    ".$details[0]['type_dish'].")  ";  
+    ".$details[0]['type_dish'].")   <br> ";  
               $this->Chatbot_model->update_dish($orderid,$changeString);
             }
             $data['message']="לקוח יקר, הפרטים עודכנו בהצלחה

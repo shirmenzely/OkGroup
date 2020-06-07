@@ -1,11 +1,9 @@
 function show_status() {
     if (status == "ללא הצעת מחיר") {
-    document.getElementById("titleprice").innerHTML = "הצעת מחיר על פי המערכת: ";
     document.getElementById("send").value = "שלח הצעת מחיר ללקוח";
 
     get_final_price();
 } else {
-    document.getElementById("titleprice").innerHTML = "הצעת מחיר על פי המערכת: ";
     document.getElementById("send").value = "שלח הצעת מחיר חדשה";
 }
 }

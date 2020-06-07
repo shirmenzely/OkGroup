@@ -121,22 +121,22 @@ body, html {
   
   }
   .bgimg-1 {
-    background-image: url("http://localhost/OkGroupSystem/asset/img/bh1.jpg");
+  /*  background-image: url("http://localhost/OkGroupSystem/asset/img/bh1.jpg");*/
     min-height: 500px;
   }
   
   .bgimg-2 {
-    background-image: url("http://localhost/OkGroupSystem/asset/img/bh2.jpg");
+  /*  background-image: url("http://localhost/OkGroupSystem/asset/img/bh2.jpg");*/
     min-height: 400px;
   }
   
   .bgimg-3 {
-    background-image: url("http://localhost/OkGroupSystem/asset/img/bh3.jpg");
+  /*  background-image: url("http://localhost/OkGroupSystem/asset/img/bh3.jpg");*/
     min-height: 400px;
   }
 
   .bgimg-4 {
-    background-image: url("http://localhost/OkGroupSystem/asset/img/bh4.jpg");
+   /* background-image: url("http://localhost/OkGroupSystem/asset/img/bh4.jpg");*/
     min-height: 400px;
   }
   

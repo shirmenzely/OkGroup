@@ -15,15 +15,12 @@ if (!defined('BASEPATH'))
 
 class Googleapi
 {
-    /**
-     * Googleapi constructor.
-     */
     public function __construct()
     {
         require_once dirname(__FILE__) . '/google-api/vendor/autoload.php';
         $this->client = new Google_Client();
         $this->client->setApplicationName('Google Calendar API PHP Quickstart');
-        $this->client->setScopes('https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/gmail.send	'); //Permissions to google calendar
+        $this->client->setScopes('https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/gmail.send'); //Permissions to google 
         $this->client->setAuthConfig('credentials.json');
         $this->client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
@@ -47,10 +44,10 @@ class Googleapi
                 $authUrl = $this->client->createAuthUrl();
                 printf("Open the following link in your browser:\n%s\n", $authUrl);
                 print 'Enter verification code: ';
-                $authCode = trim(fgets(STDIN));
+                $authCode = trim(fgets(STDIN)); // פה להכניס את הקוד אחרי שמחקנו את הטוקן
 
                 // Exchange authorization code for an access token.
-                $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+                $accessToken = $this->client->fetchAccessTokenWithAuthCode($authCode);
                 $this->client->setAccessToken($accessToken);
 
                 // Check to see if there was an error.
@@ -66,7 +63,8 @@ class Googleapi
         }
     }
     
-        //return the specific client to controler that help us to know where to update
+    
+    //return the specific client to controler that help us to know where to update
     public function client()
     {
         return $this->client;

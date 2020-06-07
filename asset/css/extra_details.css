@@ -115,3 +115,11 @@ h1{
       .round {
         border-radius: 50%;
       }
+
+      .menu{
+        padding: 5px 16px;
+       
+      }
+      .pic{
+          width: 80px; float: left;
+      }
