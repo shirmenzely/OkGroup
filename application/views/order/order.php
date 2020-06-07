@@ -1,4 +1,4 @@
-<script src="<?php echo base_url(); ?>asset/js/new_order.js"> </script>
+<script src="<?php echo base_url(); ?>asset/js/order.js"> </script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/order.css"/>
 
 
@@ -61,7 +61,6 @@
     <section class="tab">
         <h1> שירותי מזון</h1>
   
-
         <p id="type_dish_p">
             צורת הגשה: <select onclick="check()"  name="type_dish" id="type_dish">
                 <option oninput="this.className = ''" value="בופה">בופה</option>

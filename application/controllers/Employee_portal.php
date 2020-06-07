@@ -69,10 +69,7 @@ class Employee_portal extends CI_Controller
     {
         $order_id = $this->input->post('order_id');
         $flag = $this->Employee_portal_model->update_status($order_id);
-        if (
-            $this->input->post('status_order') == "מאושר"
-            && $flag
-        ) { // if the status is "מאושר" add event to calendar
+        if ($this->input->post('status_order') == "מאושר" && $flag ) { // if the status is "מאושר" add event to calendar
             $this->add_event_to_calendar($order_id);
             $this->session->set_flashdata('message2', 'האירוע התווסף ללוח האירועים של החברה');
         }
@@ -225,75 +222,64 @@ class Employee_portal extends CI_Controller
         }
     }
 
-    public function send_email($order_id,$file_name,$pdf)
+    public function send_email($order_id, $file_name, $pdf)
     {
         file_put_contents($file_name, $pdf->Output($file_name, 'S'));
-
-
-
- $this->service = new Google_Service_Gmail($this->googleapi->client());//create  api google  object 
-
-
-   $strMailContent = 'O.K. GROUP שלום, למייל זה מצורפת הצעת מחיר עבור הזמנת שירות של חברת 
+        $this->service = new Google_Service_Gmail($this->googleapi->client()); //create  api google  object 
+        $strMailContent = 'O.K. GROUP שלום, למייל זה מצורפת הצעת מחיר עבור הזמנת שירות של חברת 
         <br>
         בברכה,
         <br>
         O.K. GROUP';
 
-    $strRawMessage = "";
-    $boundary = uniqid(rand(), true);
-    $subjectCharset = $charset = 'utf-8';
-    $strToMailName = 'client';
-    $strToMail = $this->input->post('email_user');
-    $strSesFromName = ' O.k. Group';
-    $strSesFromEmail = 'okgroup2020@gmail.com';
-    $strSubject = "הצעת מחיר להזמנה " . $order_id . "";
+        $strRawMessage = "";
+        $boundary = uniqid(rand(), true);
+        $subjectCharset = $charset = 'utf-8';
+        $strToMailName = 'client';
+        $strToMail = $this->input->post('email_user');
+        $strSesFromName = ' O.k. Group';
+        $strSesFromEmail = 'okgroup2020@gmail.com';
+        $strSubject = "הצעת מחיר להזמנה " . $order_id . "";
 
-    $strRawMessage .= 'To: ' .$strToMailName . " <" . $strToMail . ">" . "\r\n";
-    $strRawMessage .= 'From: '.$strSesFromName . " <" . $strSesFromEmail . ">" . "\r\n";
+        $strRawMessage .= 'To: ' . $strToMailName . " <" . $strToMail . ">" . "\r\n";
+        $strRawMessage .= 'From: ' . $strSesFromName . " <" . $strSesFromEmail . ">" . "\r\n";
 
-    $strRawMessage .= 'Subject: =?' . $subjectCharset . '?B?' . base64_encode($strSubject) . "?=\r\n";
-    $strRawMessage .= 'MIME-Version: 1.0' . "\r\n";
-    $strRawMessage .= 'Content-type: Multipart/Mixed; boundary="' . $boundary . '"' . "\r\n";
+        $strRawMessage .= 'Subject: =?' . $subjectCharset . '?B?' . base64_encode($strSubject) . "?=\r\n";
+        $strRawMessage .= 'MIME-Version: 1.0' . "\r\n";
+        $strRawMessage .= 'Content-type: Multipart/Mixed; boundary="' . $boundary . '"' . "\r\n";
 
-    $filePath = $file_name;
-    $finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
-    $mimeType = finfo_file($finfo, $filePath);
-    $fileData = base64_encode(file_get_contents($filePath));
+        $filePath = $file_name;
+        $finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+        $mimeType = finfo_file($finfo, $filePath);
+        $fileData = base64_encode(file_get_contents($filePath));
 
-    $strRawMessage .= "\r\n--{$boundary}\r\n";
-    $strRawMessage .= 'Content-Type: '. $mimeType .'; name="'. $file_name .'";' . "\r\n";            
-    $strRawMessage .= 'Content-ID: <' . $strSesFromEmail . '>' . "\r\n";            
-    $strRawMessage .= 'Content-Description: ' . $file_name . ';' . "\r\n";
-    $strRawMessage .= 'Content-Disposition: attachment; filename="' . $file_name . '"; size=' . filesize($filePath). ';' . "\r\n";
-    $strRawMessage .= 'Content-Transfer-Encoding: base64' . "\r\n\r\n";
-    $strRawMessage .= chunk_split(base64_encode(file_get_contents($filePath)), 76, "\n") . "\r\n";
-    $strRawMessage .= "--{$boundary}\r\n";
-    $strRawMessage .= 'Content-Type: text/html; charset=' . $charset . "\r\n";
-    $strRawMessage .= 'Content-Transfer-Encoding: quoted-printable' . "\r\n\r\n";
-    $strRawMessage .= $strMailContent . "\r\n";
+        $strRawMessage .= "\r\n--{$boundary}\r\n";
+        $strRawMessage .= 'Content-Type: ' . $mimeType . '; name="' . $file_name . '";' . "\r\n";
+        $strRawMessage .= 'Content-ID: <' . $strSesFromEmail . '>' . "\r\n";
+        $strRawMessage .= 'Content-Description: ' . $file_name . ';' . "\r\n";
+        $strRawMessage .= 'Content-Disposition: attachment; filename="' . $file_name . '"; size=' . filesize($filePath) . ';' . "\r\n";
+        $strRawMessage .= 'Content-Transfer-Encoding: base64' . "\r\n\r\n";
+        $strRawMessage .= chunk_split(base64_encode(file_get_contents($filePath)), 76, "\n") . "\r\n";
+        $strRawMessage .= "--{$boundary}\r\n";
+        $strRawMessage .= 'Content-Type: text/html; charset=' . $charset . "\r\n";
+        $strRawMessage .= 'Content-Transfer-Encoding: quoted-printable' . "\r\n\r\n";
+        $strRawMessage .= $strMailContent . "\r\n";
 
-    //Send Mails
-    //Prepare the message in message/rfc822
-    try {
-        // The message needs to be encoded in Base64URL
-        $mime = rtrim(strtr(base64_encode($strRawMessage), '+/', '-_'), '=');
-        $msg = new Google_Service_Gmail_Message();
-        $msg->setRaw($mime);
-        $userId='okgroup2020@gmail.com';
-        $objSentMsg =  $this->service->users_messages->send($userId, $msg);
-
-
+        //Send Mails
+        //Prepare the message in message/rfc822
+        try {
+            // The message needs to be encoded in Base64URL
+            $mime = rtrim(strtr(base64_encode($strRawMessage), '+/', '-_'), '=');
+            $msg = new Google_Service_Gmail_Message();
+            $msg->setRaw($mime);
+            $userId = 'okgroup2020@gmail.com';
+            $objSentMsg =  $this->service->users_messages->send($userId, $msg);
             $this->session->set_flashdata('message', 'הצעת מחיר נשלחה ללקוח');
             $error = $this->Employee_portal_model->set_status_and_price($order_id, $this->input->post('final_price'));
-                    redirect('Employee_portal/extra_details_after_change/' . $order_id . '');
-
-    } catch (Exception $e) {
-           redirect('Employee_portal/extra_details_after_change/' . $order_id . '');
+            redirect('Employee_portal/extra_details_after_change/' . $order_id . '');
+        } catch (Exception $e) {
+            redirect('Employee_portal/extra_details_after_change/' . $order_id . '');
             $this->session->set_flashdata('message', ' קרתה תקלה! המערכת לא הצליחה לשלוח את המייל');
+        }
     }
-
-}
-
-
 }

@@ -35,14 +35,12 @@ function checkDate(){
     parseInt(strmth1);
     parseInt(strday1);
 
-
     if(strmth1==02 &&strday1>28 )
     return false;
     if((strmth1==04||strmth1==06||strmth1==11||strmth1==09) && strday1>30 )
     return false;
 
     return true;
-
 
 }
 
@@ -85,6 +83,8 @@ var check = function () {
         document.getElementById('error_city').innerHTML = "מקום האירוע חייב להכיל אותיות בלבד   ";
         document.getElementById('city').className += " invalid";
     }
+
+    var flagDate=true;
     var now = new Date();
     //seperate the year,month and day for the first date
     var stryear1 = order_date.substring(6);
@@ -92,61 +92,56 @@ var check = function () {
     var strday1 = order_date.substring(0, 2);
     var user_date = new Date(stryear1, strmth1 - 2, strday1);
 
-
     if (/^(0[1-9]|[12][0-9]|3[01])[- /](0[1-9]|1[012])[- /](19|20)\d\d$/.test(order_date) || order_date === "")
     {
         if (user_date >= now || order_date === "")
         {
             document.getElementById('order_date').classList.remove("invalid");
             document.getElementById('error_order_date').innerHTML = "";
-
+            flagDate=true;
         }
         else
         {
             document.getElementById('error_order_date').style.color = 'red';
             document.getElementById('error_order_date').innerHTML = "הזמנות התקבלו עד 30 ימים לאירוע";
             document.getElementById('order_date').className += " invalid";
-
+            flagDate=false;
         }
-
-
     }
-    else{
+    else {
         document.getElementById('error_order_date').style.color = 'red';
-        document.getElementById('error_order_date').innerHTML = "תאריך האירוע חייב להכיל תאריך תקין מסוג DD/MM/YYYY   ";
+        document.getElementById('error_order_date').innerHTML = "תאריך האירוע הוא מסוג DD/MM/YYYY ומכיל מספרים בלבד  ";
         document.getElementById('order_date').className += " invalid";
+        flagDate=false;
+
     }
 
-
-    if (checkDate()|| order_date === "")
+    if ((checkDate()|| order_date === "")&&flagDate)
     {
         document.getElementById('order_date').classList.remove("invalid");
         document.getElementById('error_order_date').innerHTML = "";
-
+        flagDate=true;
     }
     else {
         document.getElementById('error_order_date').style.color = 'red';
         document.getElementById('error_order_date').innerHTML = "תאריך לא קיים";
         document.getElementById('order_date').className += " invalid";
+        flagDate=false;
     }
 
 
-    if (/^[a-zA-Z\u0590-\u05fe\s]*$/.test(name_contect) || name_contect === "")
+
+    if ((/^[a-zA-Z\u0590-\u05fe\s]*$/.test(name_contect) || name_contect === ""))
     {
         document.getElementById('name_contect').classList.remove("invalid");
         document.getElementById('error_name').innerHTML = "";
-
-    }
+ }
     else {
         document.getElementById('error_name').style.color = 'red';
         document.getElementById('error_name').innerHTML = " שם איש הקשר חייב להכיל אותיות בלבד ";
         document.getElementById('name_contect').className += " invalid";
     }
-
-
 }
-
-
 
 function showTab(n) {
     // This function will display the specified tab of the form...

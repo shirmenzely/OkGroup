@@ -4,10 +4,13 @@
 <section class="title caption" style="background-image: url('<?php echo base_url(); ?>asset/img/bid_title.jpg')">
 <span class="border"><?php echo $title; ?></span><br>
  </section>
-
+ <a href="<?php echo site_url(); ?>/employee_portal/getCalendar" title="לוח אירועים" >
+        <img class="pic menu" src="<?php echo base_url(); ?>asset/img/google-calendar.png">
+    </a>
 
 <section id="select">
 <?php echo form_open('Employee_portal/view_order') ?>
+<br>
  <lable> בחר סטטוס הזמנה: </lable>  
 <select name="status">
 <option label="כל ההזמנות" value = "כל ההזמנות" >כל ההזמנות</option>
@@ -21,9 +24,10 @@
 </form>
 </section>
 
+<section style="overflow:scroll;">
 
 <?php if ($order != NULL) { ?>
-    <table id="order" style="overflow-x:auto;">
+    <table id="order" >
             <tr>           
                 <th>תאריך אירוע</th>
                 <th>סטטוס </th>
@@ -61,4 +65,5 @@
 אין הזמנות בסטטוס זה!    </div>
 
     <?php }?>
+</section>
 </main>

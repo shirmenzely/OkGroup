@@ -1,15 +1,19 @@
 main{
-    padding-bottom: 3px;
-}
+    padding-bottom: 3px;}
 
 iframe{
-    margin-right: 14.5%;
+    margin-right: 10%;
     padding-top: 3px;
     font-family: heboo;
-    background-color: #EEF2F2;
-
-}
+    background-color: #EEF2F2;}
 
 .title{
-    height: 140px;
-  }
+    height: 140px; }
+    
+
+ .menu{
+    padding: 5px 16px; }
+
+
+ .pic{
+      width: 80px; float: right; }

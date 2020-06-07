@@ -46,7 +46,7 @@ class Login extends CI_Controller {
             );
             $this->session->set_userdata($data);
             if($check[0]['manager']==1){
-                redirect("Employee_portal/view_order");
+                redirect("Employee_portal/portal");
             }
             else
             redirect("pages/index");

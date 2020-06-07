@@ -9,7 +9,7 @@ table{
     border-collapse: collapse;
     width: 90%;
     text-align: center;
-    margin-right: 4%;
+    margin-right: 5%;
 
   }
   
@@ -43,4 +43,11 @@ table{
   #empty{
     text-align: center;
   }
- 
+  .menu{
+    padding: 5px 16px;
+    margin-right: 4%;
+   
+  }
+  .pic{
+      width: 70px; float: right;
+  }
