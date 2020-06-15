@@ -14,19 +14,7 @@ function choose_type3() {
     nextPrev(1);
 
 }
-function readonly_food() {
-    if (document.getElementById("no_food").checked === true) {
 
-        document.getElementById("type_dish_p").style.display = 'none';
-        document.getElementById('type_dish').classList.remove("invalid");
-
-    }
-    else {
-        document.getElementById("type_dish_p").style.display = 'block';
-        document.getElementById("type_dish").value = "בופה";
-    }
-
-}
 function checkDate(){
     //seperate the year,month and day for the first date
     var order_date = document.getElementById("order_date").value;
@@ -103,7 +91,7 @@ var check = function () {
         else
         {
             document.getElementById('error_order_date').style.color = 'red';
-            document.getElementById('error_order_date').innerHTML = "הזמנות התקבלו עד 30 ימים לאירוע";
+            document.getElementById('error_order_date').innerHTML = " התאריך  עבר / אנו לא מקבלים אירועים שהתאריך שלהם הוא עוד פחות מחודש";
             document.getElementById('order_date').className += " invalid";
             flagDate=false;
         }
@@ -130,8 +118,6 @@ var check = function () {
         flagDate=false;
     }
 }
-
-
 
     if ((/^[a-zA-Z\u0590-\u05fe\s]*$/.test(name_contect) || name_contect === ""))
     {

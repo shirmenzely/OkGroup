@@ -49,7 +49,7 @@
                     <label >אימייל</label>  
                     <input  type="email" id="cemail" name="user" placeholder="israel@gmail.com" required>
                     <label >סיסמה </label>
-                    <input  type="password" id="cpass" name="password" placeholder="205678926" required>
+                    <input  type="password" id="cpass" name="password" placeholder="205678926" required maxlength="49">
                                        <label >שם חברה</label>
                     <input  type="text" id="cname" name="company" placeholder="O.K Group" required>
                   

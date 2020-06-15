@@ -1,12 +1,12 @@
 var session_id_obj = {};
 var message_obj = {};
 
-
 function watson_createSession() {
     document.getElementById("submit").disabled=true;
-
+    //יצירת אוביקט שמהווה לנו את הבקשה ליצירת הסשן
    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+        //במידה והסטטוס הוא תקין אוקיי
         if (this.readyState == 4 && this.status == 201) {
             session_id_obj = JSON.parse(this.response);
             watson_sendMessage();
@@ -16,21 +16,28 @@ function watson_createSession() {
     xhttp.send();
 }
 
+//פונקציה של שליחת ההודעה לווטסון
 function watson_sendMessage(message) {
     var textInputValue = document.getElementById("text-input").value;
     document.getElementById("text-input").value="";
 
+    //בפעם הראשונה בכדי שתוצג הודעת הפתיחה אנו שולחים הודעה ריקה 
     if (textInputValue === "") {
         message = "";
-    } else {
+    } 
+    //בכל מקרה אחר נשלחת ההודעה שהמשתמש הכניס בתיבת הטקסט
+    else {
         message = textInputValue;
         addElement("user", textInputValue);
     }
+
     var body = JSON.stringify({"session": session_id_obj.session_id,"message":message});
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            //הכנסה לתוך משתנה מסוג גייסון את הרספונס שחוזר מהבוט
             var obj = JSON.parse(this.response);
+            //כאן אנו נשלח 
             addElement("bot",obj.response.output.generic[0].text);
             document.getElementById("num_participants").value = obj.response.context.skills["main skill"].user_defined.number;
             document.getElementById("city").value = obj.response.context.skills["main skill"].user_defined.location;

@@ -36,16 +36,22 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p> לא לשכוח ללחוץ על "סיום צ'אט" בסוף השיחה על מנת לשמור שינויים</p>
+            <p>
+לקוח יקר ! זכור ללחוץ על  כפתור 
+"End Chat"
+בסיום , על מנת לעדכן את פרטי ההזמנה במערכת             </p>
         </div>
 
     </div>
 </main>
 
 <script>
+
     window.onload = function() {
         watson_createSession();
     };
+
+
     document.getElementById("send-message").disabled = true;
     setTimeout(function() {
         // Get the modal
@@ -70,8 +76,6 @@
             }
         }
     }, 10000);
-
-
 
 
     function notempty() {
