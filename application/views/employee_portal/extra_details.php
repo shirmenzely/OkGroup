@@ -117,7 +117,7 @@
                 <a id="titleprice">הצעת מחיר על פי המערכת: </a>
                 <a id="system_price"></a>
                 <br>הכנס הצעת מחיר:
-                <input type="number" id="final_price" name="final_price" value="<?php echo $price ?>">
+                <input type="number" id="final_price" name="final_price" value="<?php echo $price ?>" >
                 <input type="submit" id="send" onclick="document.getElementById('show').value = 0">
                 <input id="show_pdf" type="submit" value=" צפייה בהצעת מחיר ושמירה" onclick="document.getElementById('show').value = 1;">
                 <span class="red"><br>* המחיר המופיע בתיבה הוא המחיר האחרון שנשמר במערכת</span>

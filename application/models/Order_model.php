@@ -15,13 +15,14 @@ class Order_model extends CI_Model {
             return $query->result_array();
         }
     }
+
     public function set_order($data) {
 
         $this->db->db_debug = FALSE; //disable debugging for queries
-
         $error = NULL;
         if (!$this->db->insert('orders', $data)) {
             $error = $this->db->error();
+            return 1;
         }
         
         if($error == NULL){
@@ -32,14 +33,11 @@ class Order_model extends CI_Model {
             'code_supplier' => $var,
             'id_order' => $idOrder[0]['max(id)'],
         
-        );
-               
+        );              
                 if (!$this->db->insert('supplier_in_order', $data2)) {
                 $error = $this->db->error();
-                break;   
-                }            
-            }
-                     
+return 1;                }            
+            }                 
             
         }
         return $error;

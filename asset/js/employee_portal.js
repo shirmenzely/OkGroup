@@ -22,3 +22,4 @@ function get_final_price() {
     var final_price = price_person * num_participants + price_for_extra_supplier;
     document.getElementById("system_price").innerHTML = final_price + ' ש"ח';
 }
+

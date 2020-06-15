@@ -11,7 +11,6 @@
     <link rel="icon" type="image/gif/png" href="<?php echo base_url(); ?>asset/img/ok.png">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap" rel="stylesheet">
     <title><?php echo $title ?></title>
-
 </head>
 
 <body>
@@ -45,7 +44,9 @@
             <?php
             if ($user != NULL) {
                 echo '<a id="logout" href="' . site_url() . '/Login/logout">התנתקות</a>';
-            } else {
+            } 
+            
+            else {
             ?>
                 <a id="login" href="<?php echo site_url(); ?>/Login/login"><i id="iconav" class="fa fa-fw fa-user"> </i> התחברות / הרשמה
                     </a>
@@ -55,6 +56,7 @@
 
 
     </header>
+
 
     <script>
         //View pages on the menu by checking if the user is logged in or not

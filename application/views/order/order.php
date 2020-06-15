@@ -64,11 +64,11 @@
         <p id="type_dish_p">
             צורת הגשה: <select onclick="check()"  name="type_dish" id="type_dish">
                 <option oninput="this.className = ''" value="בופה">בופה</option>
-                <option oninput="this.className = ''"  value="הגשה">הגשה</option>        
+                <option oninput="this.className = ''"  value="הגשה">הגשה</option>   
+                <option oninput="this.className = ''"  value="ללא הסעדה">ללא הסעדה</option>       
             </select>
         </p>
-        <label> <input type="checkbox" name="no_food" id="no_food" onclick="readonly_food()">
-      לא מעוניין בספק אוכל </label>
+  
 
     </section>
     <section class="tab">  

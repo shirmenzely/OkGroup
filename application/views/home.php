@@ -30,15 +30,13 @@
      <div class="bgimg-2" style="background-image:url('<?php echo base_url(); ?>asset/img/bh2.jpg')">
          <div class="caption">
              <span class="border"> מנכ"ל החברה
-
                  חיים ביטון (קוקי)
-             </span>
-
+            </span>
          </div>
      </div>
 
      <div style="position:relative;">
-         <div style="color: #777;;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+         <div style="color: #777;;background-color:white;text-align:center;padding:50px 80px;">
              <p>
                  <br>
                  בעל תואר MBA במינהל עסקים ומינהל חינוך.

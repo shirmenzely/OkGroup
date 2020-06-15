@@ -4,6 +4,7 @@
     <section class="title caption" style="background-image: url('<?php echo base_url(); ?>asset/img/k1.jpg')">
 <span class="border"><?php echo $title; ?></span><br>
  </section>    </div>
+ <a href="<?php echo site_url(); ?>/pages/photo_galary" class="previous round"title="לחזרה לגלריה">  &#8249; </a>
 
 <div class="row" >
     
