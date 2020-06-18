@@ -33,9 +33,9 @@
                             $count++; ?>
                 <?php } ?>
             <?php endforeach; ?>
-            <?php if ($count == 0) ?>
+            <?php if ($count == 0) {?>
             לא נבחרו ספקים חיצוניים לאירוע
-        <?php } else { ?>
+        <?php } }else { ?>
             אין הזמנה קרובה :(
         <?php } ?>
     </section>

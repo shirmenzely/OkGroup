@@ -45,7 +45,7 @@ var check = function () {
         document.getElementById('error_num_participants').innerHTML = "";
     } else {
         document.getElementById('error_num_participants').style.color = 'red';
-        document.getElementById('error_num_participants').innerHTML = "מספר משתתפים חייב להיות חיובי";
+        document.getElementById('error_num_participants').innerHTML ="מספר משתתפים חייב להכיל ספרות בלבד ולהיות מספר חיובי" ;
         document.getElementById('num_participants').className += " invalid";
     }
 
@@ -56,7 +56,7 @@ var check = function () {
     }
     else {
         document.getElementById('error_phone').style.color = 'red';
-        document.getElementById('error_phone').innerHTML = "אנא הזן מספר נייד תקין";
+        document.getElementById('error_phone').innerHTML = " טלפון נייד צריך להכיל 10 ספרות ולהתחיל ב05";
         document.getElementById('phone_contect').className += " invalid";
     }
 

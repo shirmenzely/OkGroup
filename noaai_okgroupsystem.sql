@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 04, 2020 at 05:06 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.33
+-- Host: localhost:3306
+-- Generation Time: Jun 17, 2020 at 11:11 AM
+-- Server version: 5.6.47
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `noaai_okgroupsystem`
+-- Database: `noaai_OkGroupSystem`
 --
 
 -- --------------------------------------------------------
@@ -34,12 +34,12 @@ CREATE TABLE `orders` (
   `order_type` varchar(15) NOT NULL,
   `num_participants` int(11) NOT NULL,
   `city` varchar(30) NOT NULL,
-  `order_date` varchar(11) NOT NULL,
+  `order_date` varchar(15) NOT NULL,
   `name_contect` varchar(30) NOT NULL,
   `phone_contect` varchar(30) NOT NULL,
   `status` varchar(30) NOT NULL,
-  `note` varchar(200) NOT NULL,
-  `type_dish` varchar(20) NOT NULL,
+  `note` varchar(300) NOT NULL,
+  `type_dish` varchar(30) NOT NULL,
   `final_price` float NOT NULL,
   `change_details` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -49,24 +49,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `email`, `order_type`, `num_participants`, `city`, `order_date`, `name_contect`, `phone_contect`, `status`, `note`, `type_dish`, `final_price`, `change_details`) VALUES
-(1, 'shir@gmail.com', 'הרצאה', 100, 'תל אביב', '26/12/2020', 'שיר', '0525212063', 'נשלחה הצעת מחיר', '', 'הגשה', 30000, ''),
-(3, 'shir@gmail.com', 'הרצאה', 100, 'תל אביב', '17/04/2020', 'שיר', '0525212063', 'ללא הצעת מחיר', '', 'בופה', 20000, ''),
-(4, 'shir@gmail.com', 'כנס ', 11, 'asDD', '01/05/2020', 'SD', '0525212063', 'ללא הצעת מחיר', ' dfdds', 'בופה', 8003, ''),
-(5, 'shirmenzely@gmail.com', 'כנס ', 102, 'הרצליה', '11/12/2019', 'שיר מנזלי', '0525212063', 'מאושר', ' ', 'הגשה', 31000, ''),
-(6, 'shir@gmail.com', 'הרצאה', 11, 'תל אביב', '11/12/2020', 'שיר מנזלי', '0525212063', 'ללא הצעת מחיר', ' ', 'בופה', 0, ''),
-(7, 'shirmenzely@gmail.com', 'הרצאה', 11, 'תל אביב', '11/10/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 4200, ''),
-(8, 'ee@gmail.com', 'הרצאה', 11, 'אזור', '11/12/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 0, ''),
-(9, 'ee@gmail.com', 'אירוע חברה', 11, 'אזור', '11/10/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 22, ''),
-(10, 'ee@gmail.com', 'הרצאה', 11, 'תל אביב', '11/12/2030', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'ללא הסעדה', 0, ''),
-(11, 'shirmenzely@gmail.com', 'הרצאה', 11, 'Tel Yaf', '11/10/2020', 'Shir Menzely', '0525212063', 'ללא הצעת מחיר', ' ', 'ללא הסעדה', 0, ''),
-(12, 'shirmenzely@gmail.com', 'כנס ', 6753060, 'תל אביב', '11/10/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'ללא הסעדה', 0, ''),
-(13, 'shirmenzely@gmail.com', 'כנס ', 6753060, 'tel aviv', '11/09/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 11, ''),
-(14, 'shirmenzely@gmail.com', 'כנס ', 11, 'sss', '11/10/2020', 'רון ביטון', '0525212063', 'ללא הצעת מחיר', ' ', 'הגשה', 0, ''),
-(15, 'shirmenzely@gmail.com', 'כנס ', 6753060, 'tel', '24/05/2021', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 0, ''),
-(16, 'shirmenzely@gmail.com', 'אירוע חברה', 400, 'tel aviv', '31/02/2021', 'Shir Menzely', '0525212063', 'ללא הצעת מחיר', ' אירוע מאוד חשוב ', 'בופה', 0, ''),
-(17, 'shirmenzely@gmail.com', 'כנס ', 300, 'קיסריה', '22/04/2022', 'רון ביטון', '0525212063', 'ממתין להצעת מחיר חדשה', ' אירוע  מנהלים  ', 'בופה', 0, ' מספר משתתפים עודכן\r\n                (\r\n    מספר קודם -\r\n    450) <br>  סוג הגשה עודכן\r\n                (\r\n    סוג קודם -\r\n    בופה)   <br> '),
-(18, 'shirmenzely@gmail.com', 'כנס ', 400, 'תל אביב', '22/10/2020', 'שיר מנזלי', '0525212063', 'ללא הצעת מחיר', ' ', 'בופה', 0, ''),
-(19, 'shkl@gmail.com', 'אירוע חברה', 350, 'Holon', '27/11/2022', 'ישראלי כהן', '0556622222', 'מאושר', ' גק\'', 'ללא הסעדה', 333, '');
+(4, 'shirmenzely@gmail.com', 'כנס ', 11, 'תל אביב', '11/10/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 2300, ''),
+(5, 'shirmenzely@gmail.com', 'אירוע חברה', 11, 'תל אביב', '11/10/2020', 'שיר מנזלי', '0525212063', 'נשלחה הצעת מחיר', ' ', 'בופה', 777, ''),
+(6, 'shirmenzely@gmail.com', 'כנס ', 300, 'הרצליה', '07/08/2020', 'שיר מנזלי', '0525212063', 'ללא הצעת מחיר', ' ', 'הגשה', 90001, ''),
+(8, 'shir@gmail.com', 'כנס ', 700, 'הרצליה', '22/09/2020', 'נועה אייזן', '0525212063', 'מאושר', ' ', 'בופה', 333, ''),
+(9, 'shir@gmail.com', 'כנס ', 200, 'תל אביב', '11/07/2020', 'נועה', '0544554121', 'ללא הצעת מחיר', ' שלום', 'בופה', 0, ''),
+(10, 'shir@gmail.com', 'אירוע חברה', 500, 'יבנה', '11/02/2021', 'Ron Biton', '0544554171', 'ללא הצעת מחיר', '', 'בופה', 100000, ''),
+(11, 'yoni@gmail.com', 'אירוע חברה', 444, 'קיסריה', '13/03/2021', 'יוני חיים', '0525212555', 'מאושר', ' ', 'ללא הסעדה', 50500, ''),
+(12, 'elad@gmail.com', 'כנס ', 150, 'ראש העין', '11/11/2020', 'אלעד ירין', '0568303028', 'ללא הצעת מחיר', ' ', 'ללא הסעדה', 0, '');
 
 -- --------------------------------------------------------
 
@@ -127,24 +117,16 @@ CREATE TABLE `supplier_in_order` (
 
 INSERT INTO `supplier_in_order` (`code_supplier`, `id_order`) VALUES
 (1, 5),
-(1, 16),
-(2, 9),
-(2, 10),
-(2, 12),
-(3, 1),
-(3, 4),
+(3, 5),
+(2, 6),
 (3, 6),
-(3, 7),
-(3, 9),
-(3, 10),
-(3, 11),
-(3, 16),
-(3, 19),
-(4, 1),
-(4, 4),
-(4, 5),
-(4, 6),
-(4, 17);
+(1, 9),
+(2, 9),
+(1, 10),
+(2, 11),
+(4, 11),
+(1, 12),
+(3, 12);
 
 -- --------------------------------------------------------
 
@@ -165,11 +147,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user`, `password`, `company`, `manager`, `manager_name`) VALUES
-('b@gmail.com', '202cb962ac59075b964b07152d234b70', 'Zara', 0, ''),
-('ee@gmail.com', '202cb962ac59075b964b07152d234b70', 'ww', 0, ''),
-('shir@gmail.com', '202cb962ac59075b964b07152d234b70', 'ddd', 0, ''),
-('shirmenzely@gmail.com', '202cb962ac59075b964b07152d234b70', 'O.K. Group', 1, 'שיר מנזלי'),
-('shkl@gmail.com', '93bc87a48a71467daba9a909e24440d4', 'kasel', 0, '');
+('elad@gmail.com', '202cb962ac59075b964b07152d234b70', 'פאוור לינק', 0, ''),
+('ronbi@mta.ac.il', 'ceeccba58c8224e828f8f645a217f011', '', 0, '0'),
+('ronbitonn@gmail.com', '202cb962ac59075b964b07152d234b70', 'Ron Biton', 0, ''),
+('shir@gmail.com', '202cb962ac59075b964b07152d234b70', 'O,K. GROUP', 1, 'שיר מנזלי'),
+('shirmenzely@gmail.com', '202cb962ac59075b964b07152d234b70', 'שיר', 0, '0'),
+('yoni@gmail.com', '202cb962ac59075b964b07152d234b70', 'פול אנד בר', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -215,7 +198,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `supplier`
